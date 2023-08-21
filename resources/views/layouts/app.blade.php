@@ -23,7 +23,7 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('Home', 'Home') }}
                 </a>
-                <a class="nav-link" href="{{ url('/admin') }}">
+                <a class="nav-link" href="{{ url('/home') }}">
                     {{ config('Admin Panel', 'Admin Panel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
