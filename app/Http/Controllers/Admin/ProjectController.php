@@ -30,7 +30,16 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'title'=>"required|unique:projects|min:3|max:255",
+            'description'=>"required|min:3",
+            'link'=>"url:https",
+            'creation_date'=>"required|date",
+            'image_url'=>"url:https"
+        ]);
+
+        $newProject = Project::create($data);
+        return redirect()->route('admin.projects.index')->with('success', 'Project successfully added!');
     }
 
     /**
