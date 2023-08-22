@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\HomeController as GuestHomeController;
+use App\Http\Controllers\Guest\HomeController as GuestHomeController;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,10 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [GuestHomeController::class, 'home'])->name('guests.home');
-
 Auth::routes();
 
-Route::middleware('auth')->group(function () {
-    Route::get('/home', [AdminHomeController::class, 'home'])->name('admin.home');
+Route::name('guest.')->group(function () {
+    Route::get('/', [ GuestHomeController::class , 'home'])->name('home');
+});
+
+Route::name('admin.')->middleware('auth')->group(function () {
+    Route::get('/home', [ AdminHomeController::class , 'home'])->name('home');
 });
