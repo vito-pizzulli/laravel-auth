@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Guest\HomeController as GuestHomeController;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
+use App\Http\Controllers\Admin\ProjectController as AdminProjectController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,4 +24,5 @@ Route::name('guest.')->group(function () {
 
 Route::name('admin.')->middleware('auth')->group(function () {
     Route::get('/home', [ AdminHomeController::class , 'home'])->name('home');
+    Route::resource('/projects', AdminProjectController::class);
 });
