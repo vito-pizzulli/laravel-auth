@@ -3,14 +3,19 @@
 @section('content')
 <div class="container">
     <h1>Projects List</h1>
-    <a class="btn btn-sm btn-success" href="{{route('admin.projects.create')}}">Add New Project</a>
+    <a class="btn btn-sm btn-success mb-3" href="{{route('admin.projects.create')}}">Add New Project</a>
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
     <table class="table table-light table-hover">
         <thead>
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Title</th>
-                <th scope="col">GitHub page link</th>
-                <th scope="col">Date of creation</th>
+                <th scope="col">GitHub Page Link</th>
+                <th scope="col">Date Of Creation</th>
                 <th scope="col">Actions</th>
             </tr>
         </thead>
