@@ -5,31 +5,31 @@
     <form action="{{ route('admin.projects.store') }}" method="POST">
         @csrf
         <div class="mb-3">
-            <label for="title" class="form-label">Title</label>
+            <label for="title" class="form-label">Title:</label>
             <input type="text" class="form-control" id="title" name="title">
         </div>
         @error('title')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
         <div class="mb-3">
-            <label for="description" class="form-label">Description</label>
+            <label for="description" class="form-label">Description:</label>
             <textarea class="form-control" name="description" id="description" cols="30" rows="10"></textarea>
         </div>
-        @error('title')
+        @error('description')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
         <div class="mb-3">
-            <label for="link" class="form-label">GitHub page link</label>
+            <label for="link" class="form-label">GitHub Page Link:</label>
             <input type="text" class="form-control" id="link" name="link">
         </div>
-        @error('title')
+        @error('link')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
         <div class="mb-3">
-            <label for="creation_date" class="form-label">Date of creation</label>
+            <label for="creation_date" class="form-label">Date Of Creation:</label>
             <input type="date" class="form-control" id="creation_date" name="creation_date">
         </div>
-        @error('title')
+        @error('creation_date')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
         <div class="mb-3">
@@ -37,7 +37,7 @@
             <input type="text" class="form-control" id="image_url" name="image_url">
             <div id="imageHelp" class="form-text">A preview image for your project.</div>
         </div>
-        @error('title')
+        @error('image_url')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
         <button type="submit" class="btn btn-primary">Add New Project</button>
