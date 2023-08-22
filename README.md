@@ -22,8 +22,7 @@
 <p>Definiamo il layout, il controller e rotte necessarie per il sistema portfolio, per ora limitandoci alla creazione del modello Project con relativa migrazione, seeder, per poi implementare:</p>
 
 - Per la parte di back-office un resource controller Admin\ProjectController per gestire tutte le operazioni CRUD dei progetti, per oggi limitandoci alle seguenti implementazioni e relativi blade e rotte:
-
-- index()
-- show()
-- create()
-- store()
+    - index()
+    - show()
+    - create()
+    - store()
