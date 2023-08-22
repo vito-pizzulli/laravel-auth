@@ -3,12 +3,13 @@
 @section('content')
 <div class="container">
     <h1>Projects List</h1>
+    <a class="btn btn-sm btn-success" href="{{route('admin.projects.create')}}">Add New Project</a>
     <table class="table table-light table-hover">
         <thead>
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Title</th>
-                <th scope="col">Link</th>
+                <th scope="col">GitHub page link</th>
                 <th scope="col">Date of creation</th>
                 <th scope="col">Actions</th>
             </tr>
