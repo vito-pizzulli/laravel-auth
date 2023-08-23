@@ -28,6 +28,7 @@
                     <td> {{ $project->creation_date }} </td>
                     <td>
                         <a class="btn btn-sm btn-primary" href="{{route('admin.projects.show', $project->id)}}">View</a>
+                        <a class="btn btn-sm btn-warning" href="{{route('admin.projects.edit', $project->id)}}">Edit</a>
                     </td>
                 </tr>
             @endforeach
