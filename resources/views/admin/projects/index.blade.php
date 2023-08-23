@@ -9,6 +9,11 @@
             {{ session('createSuccess') }}
         </div>
     @endif
+    @if (session('destroySuccess'))
+        <div class="alert alert-success">
+            {{ session('destroySuccess') }}
+        </div>
+    @endif
     <table class="table table-light table-hover">
         <thead>
             <tr>
@@ -29,6 +34,12 @@
                     <td>
                         <a class="btn btn-sm btn-primary" href="{{route('admin.projects.show', $project->id)}}">View</a>
                         <a class="btn btn-sm btn-warning" href="{{route('admin.projects.edit', $project->id)}}">Edit</a>
+                        <form class="d-inline-block" action="{{ route('admin.projects.destroy', $project ) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+    
+                            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                        </form>
                     </td>
                 </tr>
             @endforeach
