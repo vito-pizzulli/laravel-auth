@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 
 class ProjectController extends Controller
@@ -39,7 +40,9 @@ class ProjectController extends Controller
             'image_url'=>"url:https"
         ]);
 
+        $data['slug'] = Str::of($data['title'])->slug('-');
         $newProject = Project::create($data);
+        $newProject->slug = Str::of("$newProject->id " . $data['title'])->slug('-');
         return redirect()->route('admin.projects.index')->with('createSuccess', 'Project successfully added!');
     }
 
@@ -72,6 +75,7 @@ class ProjectController extends Controller
             'image_url'=>"url:https"
         ]);
 
+        $project->slug = Str::of("$project->id " . $data['title'])->slug('-');
         $project->update($data);
         return redirect()->route('admin.projects.show', compact('project'))->with('editSuccess', 'Project successfully edited!');
     }
