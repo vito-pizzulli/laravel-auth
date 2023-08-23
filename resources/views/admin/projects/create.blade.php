@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+    <h1>Add a New Project</h1>
     <form action="{{ route('admin.projects.store') }}" method="POST">
         @csrf
 
@@ -46,8 +47,9 @@
                     <div class="alert alert-danger">{{ $message }}</div>
         @enderror
         
-        <button type="submit" class="btn btn-primary">Add New Project</button>
+        <button type="submit" class="btn btn-success">Confirm</button>
         <button type="reset" class="btn btn-warning">Reset All Fields</button>
+        <a class="btn btn-secondary" href="{{ url('/projects') }}">Return to Projects List</a>
     </form>
 </div>
 @endsection
