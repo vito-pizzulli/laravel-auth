@@ -16,9 +16,9 @@
             <p class="card-text">Date Of Creation: {{ $project->creation_date }} </p>
         </div>
     </div>
-    
+
     <a class="btn btn-warning" href="{{route('admin.projects.edit', $project->id)}}">Edit Project</a>
-    <form class="d-inline-block" action="{{ route('admin.projects.destroy', $project ) }}" method="POST">
+    <form class="d-inline-block" action="{{ route('admin.projects.destroy', $project ) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this project?')">
         @csrf
         @method('DELETE')
 
