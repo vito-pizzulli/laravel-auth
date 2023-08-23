@@ -2,9 +2,9 @@
 
 @section('content')
 <div class="container">
-    @if (session('success'))
+    @if (session('editSuccess'))
         <div class="alert alert-success">
-            {{ session('success') }}
+            {{ session('editSuccess') }}
         </div>
     @endif
     <div class="card mb-3">

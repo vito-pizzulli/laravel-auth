@@ -40,7 +40,7 @@ class ProjectController extends Controller
         ]);
 
         $newProject = Project::create($data);
-        return redirect()->route('admin.projects.index')->with('success', 'Project successfully added!');
+        return redirect()->route('admin.projects.index')->with('createSuccess', 'Project successfully added!');
     }
 
     /**
@@ -73,7 +73,7 @@ class ProjectController extends Controller
         ]);
 
         $project->update($data);
-        return redirect()->route('admin.projects.show', compact('project'))->with('success', 'Project successfully edited!');
+        return redirect()->route('admin.projects.show', compact('project'))->with('editSuccess', 'Project successfully edited!');
     }
 
     /**

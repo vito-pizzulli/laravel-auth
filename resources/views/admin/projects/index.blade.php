@@ -4,9 +4,9 @@
 <div class="container">
     <h1>Projects List</h1>
     <a class="btn btn-sm btn-success mb-3" href="{{route('admin.projects.create')}}">Add New Project</a>
-    @if (session('success'))
+    @if (session('createSuccess'))
         <div class="alert alert-success">
-            {{ session('success') }}
+            {{ session('createSuccess') }}
         </div>
     @endif
     <table class="table table-light table-hover">
