@@ -50,10 +50,10 @@
         
         <button type="submit" class="btn btn-success mb-1">Confirm</button>
         <button type="reset" class="btn btn-warning mb-1">Reset All Fields</button>
-        <a class="btn btn-primary mb-1" href="{{route('admin.projects.show', $project->id)}}">View Project</a>
+        <a class="btn btn-primary mb-1" href="{{route('admin.projects.show', $project) }}">View Project</a>
     </form>
     
-    <form class="d-inline-block" action="{{ route('admin.projects.destroy', $project ) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this project?')">
+    <form class="d-inline-block" action="{{ route('admin.projects.destroy', $project) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this project?')">
         @csrf
         @method('DELETE')
 

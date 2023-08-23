@@ -17,7 +17,7 @@
         </div>
     </div>
 
-    <a class="btn btn-warning" href="{{route('admin.projects.edit', $project->id)}}">Edit Project</a>
+    <a class="btn btn-warning" href="{{route('admin.projects.edit', $project) }}">Edit Project</a>
     <form class="d-inline-block" action="{{ route('admin.projects.destroy', $project ) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this project?')">
         @csrf
         @method('DELETE')

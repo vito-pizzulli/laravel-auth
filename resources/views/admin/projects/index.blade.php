@@ -30,9 +30,9 @@
                     <td> {{ $project->title }} </td>
                     <td> {{ $project->link }} </td>
                     <td>
-                        <a class="btn btn-sm btn-primary" href="{{route('admin.projects.show', $project->id)}}">View</a>
-                        <a class="btn btn-sm btn-warning" href="{{route('admin.projects.edit', $project->id)}}">Edit</a>
-                        <form class="d-inline-block" action="{{ route('admin.projects.destroy', $project ) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this project?')">
+                        <a class="btn btn-sm btn-primary" href="{{route('admin.projects.show', $project) }}">View</a>
+                        <a class="btn btn-sm btn-warning" href="{{route('admin.projects.edit', $project) }}">Edit</a>
+                        <form class="d-inline-block" action="{{ route('admin.projects.destroy', $project) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this project?')">
                             @csrf
                             @method('DELETE')
     
