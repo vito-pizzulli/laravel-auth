@@ -52,6 +52,12 @@
         <button type="reset" class="btn btn-warning">Reset All Fields</button>
         <a class="btn btn-primary" href="{{route('admin.projects.show', $project->id)}}">View Project</a>
         <a class="btn btn-secondary" href="{{ url('/projects') }}">Return to Projects List</a>
+        <form class="d-inline-block" action="{{ route('admin.projects.destroy', $project ) }}" method="POST">
+            @csrf
+            @method('DELETE')
+    
+            <button type="submit" class="btn btn-danger">Delete Project</button>
+        </form>
     </form>
 </div>
 @endsection

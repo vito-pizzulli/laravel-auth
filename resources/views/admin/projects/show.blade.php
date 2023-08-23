@@ -16,7 +16,14 @@
             <p class="card-text">Date Of Creation: {{ $project->creation_date }} </p>
         </div>
     </div>
+    
     <a class="btn btn-warning" href="{{route('admin.projects.edit', $project->id)}}">Edit Project</a>
+    <form class="d-inline-block" action="{{ route('admin.projects.destroy', $project ) }}" method="POST">
+        @csrf
+        @method('DELETE')
+
+        <button type="submit" class="btn btn-danger">Delete Project</button>
+    </form>
     <a class="btn btn-secondary" href="{{ url('/projects') }}">Return to Projects List</a>
 </div>
 @endsection
