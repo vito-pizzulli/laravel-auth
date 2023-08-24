@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h1>Edit of "{{ $project->title }}"</h1>
-    <form action="{{ route('admin.projects.update', $project) }}" method="POST">
+    <form action="{{ route('admin.projects.update', $project) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -41,8 +41,8 @@
 
         <div class="mb-3">
             <label for="image" class="form-label">Image:</label>
-            <input type="text" class="form-control" id="image" name="image" value="{{ old( 'image' , $project->image) }}">
-            <div id="imageHelp" class="form-text">A preview image for your project.</div>
+            <input type="file" name="image" id="image" class="form-control">
+            <div id="imageHelp" class="form-text">Upload a preview image for your project.</div>
         </div>
         @error('image_url')
                     <div class="alert alert-danger">{{ $message }}</div>
