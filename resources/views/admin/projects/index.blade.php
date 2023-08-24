@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h1>Projects List</h1>
-    <a class="btn btn-success mb-3" href="{{route('admin.projects.create')}}">Add New Project</a>
+    <a class="btn btn-success mb-3" href="{{route('admin.projects.create')}}">Add New</a>
     @if (session('createSuccess'))
         <div class="alert alert-success">
             {{ session('createSuccess') }}
@@ -32,11 +32,11 @@
                     <td>
                         <a class="btn btn-sm btn-primary" href="{{route('admin.projects.show', $project) }}">View</a>
                         <a class="btn btn-sm btn-warning" href="{{route('admin.projects.edit', $project) }}">Edit</a>
-                        <form class="d-inline-block" action="{{ route('admin.projects.destroy', $project) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this project?')">
+                        <form class="d-inline-block" action="{{ route('admin.projects.destroy', $project) }}" method="POST" onsubmit="return confirm('Are you sure you want to move this project to the Recycle Bin?')">
                             @csrf
                             @method('DELETE')
     
-                            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                            <button type="submit" class="btn btn-sm btn-dark">Delete</button>
                         </form>
                     </td>
                 </tr>

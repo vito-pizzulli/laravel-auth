@@ -48,8 +48,8 @@
         @enderror
         
         <button type="submit" class="btn btn-success">Confirm</button>
-        <button type="reset" class="btn btn-warning">Reset All Fields</button>
-        <a class="btn btn-secondary" href="{{ route('admin.projects.index') }}">Return to Projects List</a>
+        <button type="reset" class="btn btn-warning">Reset Fields</button>
+        <a class="btn btn-secondary" href="{{ route('admin.projects.index') }}">Return to List</a>
     </form>
 </div>
 @endsection
