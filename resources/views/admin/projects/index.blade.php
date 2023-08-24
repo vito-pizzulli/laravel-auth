@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h1>Projects List</h1>
-    <a class="btn btn-sm btn-success mb-3" href="{{route('admin.projects.create')}}">Add New Project</a>
+    <a class="btn btn-success mb-3" href="{{route('admin.projects.create')}}">Add New Project</a>
     @if (session('createSuccess'))
         <div class="alert alert-success">
             {{ session('createSuccess') }}
