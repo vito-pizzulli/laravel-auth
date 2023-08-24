@@ -49,7 +49,7 @@
         
         <button type="submit" class="btn btn-success">Confirm</button>
         <button type="reset" class="btn btn-warning">Reset All Fields</button>
-        <a class="btn btn-secondary" href="{{ url('/projects') }}">Return to Projects List</a>
+        <a class="btn btn-secondary" href="{{ route('admin.projects.index') }}">Return to Projects List</a>
     </form>
 </div>
 @endsection

@@ -25,13 +25,13 @@
         </div>
     </div>
 
-    <a class="btn btn-warning" href="{{route('admin.projects.edit', $project) }}">Edit Project</a>
+    <a class="btn btn-warning" href="{{ route('admin.projects.edit', $project) }}">Edit Project</a>
     <form class="d-inline-block" action="{{ route('admin.projects.destroy', $project ) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this project?')">
         @csrf
         @method('DELETE')
 
         <button type="submit" class="btn btn-danger">Delete Project</button>
     </form>
-    <a class="btn btn-secondary" href="{{ url('/projects') }}">Return to Projects List</a>
+    <a class="btn btn-secondary" href="{{ route('admin.projects.index') }}">Return to Projects List</a>
 </div>
 @endsection
