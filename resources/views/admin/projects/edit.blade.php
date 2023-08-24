@@ -44,7 +44,7 @@
             <input type="file" name="image" id="image" class="form-control">
             <div id="imageHelp" class="form-text">Upload a preview image for your project.</div>
         </div>
-        @error('image_url')
+        @error('image')
                     <div class="alert alert-danger">{{ $message }}</div>
         @enderror
         
