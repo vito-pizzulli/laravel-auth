@@ -24,5 +24,6 @@ Route::name('guest.')->group(function () {
 
 Route::name('admin.')->middleware('auth')->group(function () {
     Route::get('/home', [ AdminHomeController::class , 'home'])->name('home');
+    Route::get('/projects/trashed', [ AdminProjectController::class, 'trashed'])->name('projects.trashed');
     Route::resource('/projects', AdminProjectController::class);
 });
