@@ -41,11 +41,12 @@ class ProjectController extends Controller
             'image'=>"required|image"
         ]);
 
-        $img_path = Storage::put('uploads/posts', $request['image']);
+        $img_path = Storage::put('uploads/projects', $request['image']);
         $data['image'] = $img_path;
         $data['slug'] = Str::of($data['title'])->slug('-');
         $newProject = Project::create($data);
         $newProject->slug = Str::of("$newProject->id " . $data['title'])->slug('-');
+        $newProject->save();
         return redirect()->route('admin.projects.index')->with('createSuccess', 'Project successfully added!');
     }
 
@@ -78,8 +79,8 @@ class ProjectController extends Controller
             'image'=>"required|image"
         ]);
 
-        Storage::delete($post->image);
-        $img_path = Storage::put('uploads/posts', $request['image']);
+        Storage::delete($project->image);
+        $img_path = Storage::put('uploads/projects', $request['image']);
         $data['image'] = $img_path;
         $project->slug = Str::of("$project->id " . $data['title'])->slug('-');
         $project->update($data);
