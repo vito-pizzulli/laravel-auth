@@ -25,5 +25,7 @@ Route::name('guest.')->group(function () {
 Route::name('admin.')->middleware('auth')->group(function () {
     Route::get('/home', [ AdminHomeController::class , 'home'])->name('home');
     Route::get('/projects/trashed', [ AdminProjectController::class, 'trashed'])->name('projects.trashed');
+    Route::post('projects/trashed/{project}', [ AdminProjectController::class, 'restore'])->name('projects.restore');
+    Route::delete('projects/trashed/{project}', [ AdminProjectController::class, 'forceDelete'])->name('projects.forceDelete');
     Route::resource('/projects', AdminProjectController::class);
 });
