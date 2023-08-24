@@ -31,3 +31,7 @@
 - edit()
 - update()
 - destroy()
+
+## Giorno 4
+
+<p>Sostituiamo l'inserimento dell'URL per l'immagine dei nostri progetti con il caricamento di un file immagine.</p>
