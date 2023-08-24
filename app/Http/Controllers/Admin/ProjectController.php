@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 
 class ProjectController extends Controller
@@ -37,9 +38,11 @@ class ProjectController extends Controller
             'description'=>"required|min:3",
             'link'=>"url:https",
             'creation_date'=>"required|date",
-            'image'=>"image"
+            'image'=>"required|image"
         ]);
 
+        $img_path = Storage::put('uploads/posts', $request['image']);
+        $data['image'] = $img_path;
         $data['slug'] = Str::of($data['title'])->slug('-');
         $newProject = Project::create($data);
         $newProject->slug = Str::of("$newProject->id " . $data['title'])->slug('-');
@@ -72,9 +75,12 @@ class ProjectController extends Controller
             'description'=>"required|min:3",
             'link'=>"url:https",
             'creation_date'=>"required|date",
-            'image'=>"image"
+            'image'=>"required|image"
         ]);
 
+        Storage::delete($post->image);
+        $img_path = Storage::put('uploads/posts', $request['image']);
+        $data['image'] = $img_path;
         $project->slug = Str::of("$project->id " . $data['title'])->slug('-');
         $project->update($data);
         return redirect()->route('admin.projects.show', compact('project'))->with('editSuccess', 'Project successfully edited!');
