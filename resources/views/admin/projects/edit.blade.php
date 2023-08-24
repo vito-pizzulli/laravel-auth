@@ -50,7 +50,7 @@
         
         <button type="submit" class="btn btn-success mb-1">Confirm</button>
         <button type="reset" class="btn btn-warning mb-1">Reset All Fields</button>
-        <a class="btn btn-primary mb-1" href="{{route('admin.projects.show', $project) }}">View Project</a>
+        <a class="btn btn-primary mb-1" href="{{ route('admin.projects.show', $project) }}">View Project</a>
     </form>
     
     <form class="d-inline-block" action="{{ route('admin.projects.destroy', $project) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this project?')">
@@ -58,7 +58,7 @@
         @method('DELETE')
 
         <button type="submit" class="btn btn-danger mb-1">Delete Project</button>
-        <a class="btn btn-secondary mb-1" href="{{ url('/projects') }}">Return to Projects List</a>
+        <a class="btn btn-secondary mb-1" href="{{ route('admin.projects.index') }}">Return to Projects List</a>
     </form>
 </div>
 @endsection
