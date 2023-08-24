@@ -2,13 +2,21 @@
 
 @section('content')
 <div class="container">
+
     @if (session('editSuccess'))
         <div class="alert alert-success">
             {{ session('editSuccess') }}
         </div>
     @endif
+
     <div class="card mb-3">
-        <img src="{{ $project->image }}" class="card-img-top" alt=" {{ $project->title }} ">
+
+        @if (str_starts_with($project->image, 'http' ))
+            <img src="{{ $project->image }}" alt="{{ $project->title }}">
+        @else
+            <img src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->title }}">
+        @endif
+
         <div class="card-body">
             <h5 class="card-title">Title: {{ $project->title }} </h5>
             <p class="card-text">Description: {{ $project->description }} </p>
