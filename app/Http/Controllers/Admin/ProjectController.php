@@ -12,7 +12,7 @@ use Illuminate\Validation\Rule;
 class ProjectController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the Project instances.
      */
     public function index()
     {
@@ -21,7 +21,7 @@ class ProjectController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new Project instance.
      */
     public function create()
     {
@@ -29,7 +29,7 @@ class ProjectController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created Project instance in storage.
      */
     public function store(Request $request)
     {
@@ -50,7 +50,7 @@ class ProjectController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified Project instance.
      */
     public function show(Project $project)
     {
@@ -58,7 +58,7 @@ class ProjectController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified Project instance.
      */
     public function edit(Project $project)
     {
@@ -66,7 +66,7 @@ class ProjectController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified Project instance in storage.
      */
     public function update(Request $request, Project $project)
     {
@@ -87,7 +87,7 @@ class ProjectController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified Project instance from storage.
      */
     public function destroy(Project $project)
     {
@@ -95,9 +95,32 @@ class ProjectController extends Controller
         return redirect()->route('admin.projects.index')->with('destroySuccess', 'Project successfully moved to the Recycle Bin!');
     }
 
+    /**
+     * Display a listing of the trashed Project instances.
+     */
     public function trashed()
     {
         $projects = Project::onlyTrashed()->paginate(10);
         return view('admin.projects.trashed', compact('projects'));
+    }
+
+    /**
+     * Restores the specified Project instance from the trashed ones.
+     */
+    public function restore(string $slug){
+        $project = Project::onlyTrashed()->findOrFail($slug);
+        $project->restore();
+        return redirect()->route('admin.projects.trashed')->with('restoreSuccess', 'Project successfully restored to Projects List!');
+    }
+
+    /**
+     * Permanently deleted the specified Project instance from the database.
+     */
+    public function forceDelete(string $slug)
+    {
+        $project = Project::onlyTrashed()->findOrFail($slug);
+        Storage::delete($project->image);
+        $project->forceDelete();
+        return redirect()->route('admin.projects.trashed')->with('forceDeleteSuccess', 'Project successfully deleted!');
     }
 }
