@@ -94,4 +94,10 @@ class ProjectController extends Controller
         $project->delete();
         return redirect()->route('admin.projects.index')->with('destroySuccess', 'Project successfully deleted!');
     }
+
+    public function trashed()
+    {
+        $projects = Project::onlyTrashed()->paginate(10);
+        return view('admin.projects.trashed', compact('projects'));
+    }
 }
