@@ -16,7 +16,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::paginate(10);
+        $projects = Project::paginate(14);
         return view('admin.projects.index', compact('projects'));
     }
 
@@ -101,7 +101,7 @@ class ProjectController extends Controller
      */
     public function trashed()
     {
-        $projects = Project::onlyTrashed()->paginate(10);
+        $projects = Project::onlyTrashed()->paginate(14);
         return view('admin.projects.trashed', compact('projects'));
     }
 

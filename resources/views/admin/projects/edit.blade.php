@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h1>Edit of "{{ $project->title }}"</h1>
+    <h1 class="mb-4">Edit of "{{ $project->title }}"</h1>
     <form action="{{ route('admin.projects.update', $project) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
