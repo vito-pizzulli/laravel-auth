@@ -14,7 +14,7 @@ class Project extends Model
         'description',
         'link',
         'creation_date',
-        'image_url',
+        'image',
         'slug'
     ];
 

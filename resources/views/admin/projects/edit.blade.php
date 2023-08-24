@@ -40,8 +40,8 @@
         @enderror
 
         <div class="mb-3">
-            <label for="image_url" class="form-label">Image URL</label>
-            <input type="text" class="form-control" id="image_url" name="image_url" value="{{ old( 'image_url' , $project->image_url) }}">
+            <label for="image" class="form-label">Image:</label>
+            <input type="text" class="form-control" id="image" name="image" value="{{ old( 'image' , $project->image) }}">
             <div id="imageHelp" class="form-text">A preview image for your project.</div>
         </div>
         @error('image_url')

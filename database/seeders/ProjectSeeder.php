@@ -20,7 +20,7 @@ class ProjectSeeder extends Seeder
             $newProject->description = $faker->paragraph();
             $newProject->link = $faker->url();
             $newProject->creation_date = $faker->date();
-            $newProject->image_url = $faker->imageUrl(640, 480, 'sites', true);
+            $newProject->image = $faker->imageUrl(640, 480, 'sites', true);
             $newProject->slug = $newProject->title;
             $newProject->save();
             $newProject->slug = $newProject->id . "-" . $newProject->title;

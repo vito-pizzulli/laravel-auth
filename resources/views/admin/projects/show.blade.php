@@ -8,7 +8,7 @@
         </div>
     @endif
     <div class="card mb-3">
-        <img src="{{ $project->image_url }}" class="card-img-top" alt=" {{ $project->title }} ">
+        <img src="{{ $project->image }}" class="card-img-top" alt=" {{ $project->title }} ">
         <div class="card-body">
             <h5 class="card-title">Title: {{ $project->title }} </h5>
             <p class="card-text">Description: {{ $project->description }} </p>

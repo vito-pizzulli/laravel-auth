@@ -37,7 +37,7 @@ class ProjectController extends Controller
             'description'=>"required|min:3",
             'link'=>"url:https",
             'creation_date'=>"required|date",
-            'image_url'=>"url:https"
+            'image'=>"image"
         ]);
 
         $data['slug'] = Str::of($data['title'])->slug('-');
@@ -72,7 +72,7 @@ class ProjectController extends Controller
             'description'=>"required|min:3",
             'link'=>"url:https",
             'creation_date'=>"required|date",
-            'image_url'=>"url:https"
+            'image'=>"image"
         ]);
 
         $project->slug = Str::of("$project->id " . $data['title'])->slug('-');

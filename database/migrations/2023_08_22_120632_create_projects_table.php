@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('description');
             $table->text('link');
             $table->date('creation_date');
-            $table->text('image_url');
+            $table->text('image');
             $table->string('slug');
             $table->timestamps();
         });
