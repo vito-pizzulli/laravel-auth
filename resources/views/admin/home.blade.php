@@ -3,10 +3,7 @@
 @section('content')
 <div class="container">
     <h1 class="mb-5">Admin Panel</h1>
-    <h2>Welcome, {{ $user->name }}!</h2>
-    <h3 class="mb-5">Your mail is: {{ $user->email }}.</h3>
-    <a class="btn btn-primary btn-lg" href="{{ url('/projects') }}">
-        Projects List
-    </a>
+    <p class="fs-3">Welcome, {{ $user->name }}! Your mail is: {{ $user->email }}.</p>
+    <p class="fs-5">You can access the Admin Panel sections via the top navigation bar.</p>
 </div>
 @endsection

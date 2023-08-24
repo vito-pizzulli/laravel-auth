@@ -23,6 +23,6 @@ Route::name('guest.')->group(function () {
 });
 
 Route::name('admin.')->middleware('auth')->group(function () {
-    Route::get('/adminpanel', [ AdminHomeController::class , 'home'])->name('home');
+    Route::get('/home', [ AdminHomeController::class , 'home'])->name('home');
     Route::resource('/projects', AdminProjectController::class);
 });
