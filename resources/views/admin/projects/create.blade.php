@@ -8,7 +8,7 @@
 
         <div class="mb-3">
             <label for="title" class="form-label">Title:</label>
-            <input type="text" class="form-control" id="title" name="title">
+            <input type="text" class="form-control" id="title" name="title" value="{{ old( 'title') }}">
         </div>
         @error('title')
                     <div class="alert alert-danger">{{ $message }}</div>
@@ -16,7 +16,7 @@
 
         <div class="mb-3">
             <label for="description" class="form-label">Description:</label>
-            <textarea class="form-control" name="description" id="description" cols="30" rows="10"></textarea>
+            <textarea class="form-control" name="description" id="description" cols="30" rows="10">{{ old( 'description') }}</textarea>
         </div>
         @error('description')
                     <div class="alert alert-danger">{{ $message }}</div>
@@ -24,7 +24,7 @@
 
         <div class="mb-3">
             <label for="link" class="form-label">GitHub Page Link:</label>
-            <input type="text" class="form-control" id="link" name="link">
+            <input type="text" class="form-control" id="link" name="link" value="{{ old( 'link') }}">
         </div>
         @error('link')
                     <div class="alert alert-danger">{{ $message }}</div>
@@ -32,7 +32,7 @@
 
         <div class="mb-3">
             <label for="creation_date" class="form-label">Date Of Creation:</label>
-            <input type="date" class="form-control" id="creation_date" name="creation_date">
+            <input type="date" class="form-control" id="creation_date" name="creation_date" value="{{ old( 'creation_date') }}">
         </div>
         @error('creation_date')
                     <div class="alert alert-danger">{{ $message }}</div>
@@ -43,7 +43,7 @@
             <input type="file" name="image" id="image" class="form-control">
             <div id="imageHelp" class="form-text">Upload a preview image for your project.</div>
         </div>
-        @error('image_url')
+        @error('image')
                     <div class="alert alert-danger">{{ $message }}</div>
         @enderror
         
